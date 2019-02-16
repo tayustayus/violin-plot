@@ -1,0 +1,77 @@
+# Turtle Graphics Game
+import turtle
+import time
+
+delay = 0.1
+
+#set up screen
+wn = turtle.Screen()
+wn.bgcolor("lightgreen")
+wn.tracer(0) # turns off screen update
+
+#Create player turtle
+player = turtle.Turtle()
+player.color("red")
+player.shape("square")
+player.penup()
+player.direction = "stop"
+player.speed = (1)
+
+#set speed variable
+
+
+#Definition of function
+
+def move():
+	if player.direction == "up":
+		y = player.ycor()
+		y += 20
+		player.sety(y)
+
+	if player.direction == "down":
+		y = player.ycor()
+		y -= 20
+		player.sety(y)
+
+	if player.direction == "left":
+		x = player.xcor()
+		x -= 20
+		player.setx(x)
+
+	if player.direction == "right":
+		x = player.xcor()
+		x += 20
+		player.setx(x)
+
+
+def  go_up():
+   player.direction = "up"
+def  go_down():   
+   player.direction = "down"
+def go_left():
+	 player.direction = "left"
+def go_right():
+	 player.direction = "right"
+	
+
+  
+#main game loop
+
+
+#set keyboard bindings
+wn.listen()
+wn.onkey(go_left, "a")
+wn.onkey(go_right, "d")
+wn.onkey(go_up, "w")
+wn.onkey(go_down, "s")
+
+while True:
+    wn.update()
+
+    move()
+
+    time.sleep(delay)
+
+
+
+delay + raw_input("press Enter to finish")
